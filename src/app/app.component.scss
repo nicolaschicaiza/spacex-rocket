@@ -1,0 +1,56 @@
+// Variables
+$color-secundary: rgb(60, 156, 225);
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    .title {
+        display: flex;
+        justify-content: center;
+        background-color: $color-secundary;
+        width: 100%;
+        h1 {
+            margin: 10px;
+            color: white;
+        }
+    }
+}
+
+.box {
+    height: 200px;
+    width: 200px;
+    overflow: auto;
+    background: red;
+}
+
+.message-error {
+    background-color: red;
+    color: white;
+    opacity: 0;
+    transition: all linear 0.5s;
+    &.invalid {
+        opacity: 1;
+    }
+}
+
+.styles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+// @media screen and (min-width: 480px) {
+//   .rockets--grid {
+//     display: grid;
+//     // grid-template-columns: repeat(4, 1fr);
+//     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); // responsive según el tamaño de la interfaz
+//     grid-gap: 15px;
+//   }
+// }
+
+// @media screen and (min-width: 62em) {
+//   .rockets-grid {
+//     grid-template-columns: repeat(5, 1fr);
+//   }
+// }

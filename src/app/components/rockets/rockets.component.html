@@ -1,0 +1,10 @@
+<div class="rockets--grid">
+    <app-rocket [rocket]="rocket" *ngFor="let rocket of rockets" (showRocket)="onShowDetail($event)"> </app-rocket>
+</div>
+<div class="rocket--detail" [class.active]="showRocketDetail">
+    <div>Img</div>
+    <h3 class="rocket--name">{{ rocket.name }}</h3>
+    <p class="rocket--country">{{ rocket.country }}</p>
+    <p class="rocket--discription">{{ rocket.description }}</p>
+    <p class="rocket--height">Altura: {{ rocket.height }}</p>
+</div>
