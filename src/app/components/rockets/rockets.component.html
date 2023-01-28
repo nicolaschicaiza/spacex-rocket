@@ -2,9 +2,30 @@
     <app-rocket [rocket]="rocket" *ngFor="let rocket of rockets" (showRocket)="onShowDetail($event)"> </app-rocket>
 </div>
 <div class="rocket--detail" [class.active]="showRocketDetail">
-    <div>Img</div>
-    <h3 class="rocket--name">{{ rocket.name }}</h3>
-    <p class="rocket--country">{{ rocket.country }}</p>
-    <p class="rocket--discription">{{ rocket.description }}</p>
-    <p class="rocket--height">Altura: {{ rocket.height }}</p>
+    <div>
+        <button class="rocket--close" (click)="toggleRocketDetail()">
+            ✖️
+        </button>
+    </div>
+    <div class="detail--content">
+        <div class="rocket--img">
+            <swiper [slidesPerView]="1">
+                <ng-template swiperSlide *ngFor="let img of rocket.flickr_images">
+                    <img [src]="img" [alt]="rocket.name">
+                </ng-template>
+            </swiper>
+        </div>
+        <h3 class="rocket--name">{{ rocket.name }}</h3>
+        <p class="rocket--country">{{ rocket.country }}</p>
+        <p class="rocket--discription">{{ rocket.description }}</p>
+        <p class="rocket--height"><span>Altura:</span> {{ rocket.height }}</p>
+    </div>
+    <div class="detail--buttons">
+        <button class="btn btn--edit" (click)="updateRocket()">
+            Editar
+        </button>
+        <button class="btn btn--delete" (click)="deleteRocket()">
+            Eliminar
+        </button>
+    </div>
 </div>

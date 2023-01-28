@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Rocket } from 'src/app/models/rocket.model';
+import { Rocket, UpdateRocketDTO } from 'src/app/models/rocket.model';
 import { RocketService } from 'src/app/services/rocket.service';
 import Swal from 'sweetalert2';
 
@@ -75,6 +75,33 @@ export class RocketsComponent implements OnInit {
                     confirmButtonText: 'Aceptar'
                 })
             });
+    }
+
+    updateRocket() {
+        const id = this.rocket.id;
+        const changes: UpdateRocketDTO = {
+            name: 'Nuevo Rocket'
+        }
+        this.rocketService.updateRocket(changes, id)
+            .subscribe(data => {
+                this.rocket = data;
+                this.rockets = this.rockets.map((item) => {
+                    if (item.id === data.id) {
+                        return data;
+                    }
+                    return item;
+                })
+        })
+    }
+
+    deleteRocket() {
+        const id = this.rocket.id;
+        this.rocketService.deleteRocket(id)
+            .subscribe(() => {
+                const rocketIndex = this.rockets.findIndex(item => item.id === this.rocket.id);
+                this.rockets.splice(rocketIndex, 1);
+                this.showRocketDetail = false;
+        })
     }
 
 }
