@@ -8,19 +8,23 @@ import { AppComponent } from './app.component';
 import { RocketComponent } from './components/rocket/rocket.component';
 import { RocketsComponent } from './components/rockets/rockets.component';
 import { ImgComponent } from './components/img/img.component';
+import { FormsModule } from '@angular/forms';
+import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         RocketComponent,
         RocketsComponent,
-        ImgComponent
+        ImgComponent,
+        NavComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        SwiperModule
+        SwiperModule,
+        FormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]

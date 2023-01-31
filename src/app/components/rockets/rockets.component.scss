@@ -1,6 +1,8 @@
 // Variables
 $color-primary: white;
 $color-secundary: rgb(60, 156, 225);
+$color-delete: rgb(249, 49, 49);
+$color-success: rgb(13, 136, 13);
 
 .rocket--detail {
     position: fixed;
@@ -10,8 +12,7 @@ $color-secundary: rgb(60, 156, 225);
     right: 0%;
     padding: 20px;
     margin: 2px;
-    min-height: 200px;
-    border-radius: 20px;
+    border-radius: 20px 0px 0px 20px;
     background-color: white;
     box-shadow: 2px 2px 8px gray;
     display: flex;
@@ -21,7 +22,7 @@ $color-secundary: rgb(60, 156, 225);
     &.active {
         transform: translateX(0%);
     }
-    .detail--content{
+    .detail--content {
         overflow-y: auto;
     }
     .rocket--close {
@@ -31,8 +32,12 @@ $color-secundary: rgb(60, 156, 225);
         font-size: 2rem;
         &:hover {
             border-radius: 50%;
-            background-color: rgb(249, 49, 49);
+            background-color: $color-delete;
         }
+    }
+    h2 {
+        font-size: 3rem;
+        margin: auto;
     }
     .rocket--img {
         width: 100%;
@@ -55,38 +60,59 @@ $color-secundary: rgb(60, 156, 225);
             font-weight: bold;
         }
     }
+    .btn {
+        width: 100%;
+        padding: 8px;
+        margin-top: 10px;
+        border-radius: 8px;
+        font-size: 1.6rem;
+        border-style: solid;
+        border-width: 2px;
+        border-color: $color-secundary;
+        color: $color-secundary;
+        background-color: $color-primary;
+        &:hover {
+            color: $color-primary;
+            background-color: $color-secundary;
+        }
+    }
     .detail--buttons {
         display: flex;
         justify-content: center;
         bottom: 100%;
         gap: 5px;
-        .btn {
-            width: 50%;
-            padding: 8px;
-            margin-top: 10px;
-            border-radius: 8px;
-            font-size: 1.6rem;
-            border-style: solid;
-            border-width: 2px;
-            border-color: $color-secundary;
-            color: $color-secundary;
-            background-color: $color-primary;
-            &:hover {
-                color: $color-primary;
-                background-color: $color-secundary;
-            }
-        }
         .btn--edit {
+            width: 50% !important;
             &:hover {
                 border-width: 0px;
-                background-color: green;
+                background-color: $color-success;
             }
         }
         .btn--delete {
+            width: 50% !important;
             &:hover {
                 border-width: 0px;
-                background-color: red;
+                background-color: $color-delete;
             }
+        }
+    }
+    .content--inputs {
+        display: flex;
+        margin: 10px 0px 20px 0px;
+        width: 100%;
+        flex-direction: column;
+        overflow-y: auto;
+        input {
+            font-size: 1.6rem;
+            margin: 15px 0px;
+            padding: 8px;
+            border-radius: 5px;
+        }
+        textarea {
+            font-size: 1.6rem;
+            margin: 15px 0px;
+            padding: 8px;
+            border-radius: 5px;
         }
     }
 }
@@ -96,35 +122,40 @@ $color-secundary: rgb(60, 156, 225);
     grid-gap: 15px;
 }
 
-// tablets
-@media screen and (min-width: 480px) {
-    .rockets--grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 15px;
-    }
-}
-
-// web
-@media screen and (min-width: 768px) {
-    .rockets--grid {
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 20px;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .rockets--grid {
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 25px;
-    }
-    .rocket--detail {
-    }
-}
-
-// // any
-// @media screen and (min-width: 40em) {
+// // tablets
+// @media screen and (min-width: 480px) {
 //     .rockets--grid {
-//         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+//         grid-template-columns: repeat(2, 1fr);
 //         grid-gap: 15px;
 //     }
 // }
+
+// // web
+// @media screen and (min-width: 768px) {
+//     .rockets--grid {
+//         grid-template-columns: repeat(2, 1fr);
+//         grid-gap: 10px;
+//         margin: 0 20%;
+//         width: calc(100% - 40%);
+//     }
+// }
+
+// @media screen and (min-width: 1024px) {
+//     .rockets--grid {
+//         grid-template-columns: repeat(4, 1fr);
+//         grid-gap: 25px;
+//         margin: 0 10%;
+//         width: calc(100% - 20%);
+
+//     }
+// }
+
+// any
+@media screen and (min-width: 40em) {
+    .rockets--grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-gap: 15px;
+        margin: 0 10%;
+        width: calc(100% - 20%);
+    }
+}

@@ -1,25 +1,28 @@
-// Variables
-$ancho: 300px;
 $color-primary: white;
 $color-secundary: rgb(60, 156, 225);
 
-.container {
-    border-radius: 10px;
-    padding: 8px;
-    box-shadow: 5px 5px 10px 2px grey;
-    width: 250px;
-    max-height: $ancho;
-    min-height: $ancho;
-    margin: auto;
-    h2 {
-        font-size: 3rem;
-        font-weight: bold;
-        margin: 5px 0px 5px 0px;
+.nav {
+    display: flex;
+    margin-bottom: 25px;
+    background-color: $color-secundary;
+    padding-inline: 10px;
+    align-items: center;
+}
+
+.title {
+    justify-content: center;
+    width: 100%;
+    h1 {
+        margin: 10px;
+        color: white;
     }
-    button {
+}
+
+.nav--create {
+    width: 300px;
+    .btn {
         width: 100%;
         padding: 8px;
-        margin-top: 10px;
         border-radius: 8px;
         font-size: 1.6rem;
         border-style: solid;
@@ -30,7 +33,13 @@ $color-secundary: rgb(60, 156, 225);
         &:hover {
             color: $color-primary;
             background-color: $color-secundary;
+            border-color: white;
         }
     }
 }
 
+@media screen and (max-width: 600px) {
+    .nav--create {
+        width: 100px;
+    }
+}

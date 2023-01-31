@@ -17,7 +17,6 @@ export class RocketComponent implements OnInit {
         flickr_images: [],
     };
     @Output() showRocket = new EventEmitter<string>();
-    showRocketDetail = false;
 
     constructor() { }
 
