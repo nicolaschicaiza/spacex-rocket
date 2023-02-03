@@ -100,6 +100,14 @@ export class RocketsComponent implements OnInit {
     onShowCreate() {
         this.showPanel = 'createRocket';
         this.showRocketDetail = true;
+        this.rocket = {
+            id: '',
+            name: '',
+            description: '',
+            country: '',
+            height: 0,
+            flickr_images: [],
+        }
         this.rocket.flickr_images = [`https://placeimg.com/640/480/any?random=${Math.random()}`];
     }
 
